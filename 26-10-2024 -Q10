@@ -1,0 +1,260 @@
+    /*  QUESTION.45. Check if two Lists are disjoint
+Write a method that checks if two Lists have no elements in common using a Set.
+Input:
+List<Integer> list1 = new List<Integer>{1, 2, 3};
+List<Integer> list2 = new List<Integer>{4, 5, 6};
+Output: true */
+    Public static void   ListsAreDisjoint(){  
+        
+        
+        
+        
+        List<Integer> Listnew1 = new List<Integer>{1, 2, 3};
+            List<Integer> Listnew2 = new List<Integer>{4, 5, 6};
+                
+                Set<Integer>  Setnew1 = new Set<Integer>();    
+        
+        Setnew1.addAll(Listnew1);
+        
+        for(Integer num : Listnew2){
+            if(!Setnew1.contains(num)){
+                
+                Boolean nocommenelement = True;
+                system.debug(nocommenelement);
+            }
+        }
+        
+    }
+    
+    /*  QUESTION.37.Find missing elements from one List using a Set
+Write a method that finds elements in one List that are missing from another List using a Set.
+Input:
+List<Integer> list1 = new List<Integer>{1, 2, 3};
+List<Integer> list2 = new List<Integer>{2, 3, 4};
+Output: [1]*/
+    
+    Public static void   missingFromAnotherList(){  
+        
+        List<Integer> list1a  = new List<Integer>{1, 2, 3};
+            List<Integer> list1b = new List<Integer>{2, 3, 4};  
+                
+                Set<Integer> set2 = new Set<Integer>(list1b);
+        
+        
+        List<Integer> missing  = new List<Integer>();
+        
+        
+        for (Integer num : list1a) {
+            
+            if (!set2.contains(num)) {
+                missing.add(num);
+                system.debug(missing);
+            }
+        }
+        
+    }
+    
+    
+    /*  QUESTION.36 Convert a List of objects into a Map with a custom key
+Write a method that converts a List of custom objects into a Map where the key is a field of the object.
+Input:
+List<Account> accounts = [SELECT Id, Name FROM Account];
+Output: {Id1 => 'Account1', Id2 => 'Account2'}*/
+    
+    Public static void    MapWithACustomKey(){  
+        
+        List<Account> accounts = [SELECT Id, Name FROM Account];
+        Map<Id, String> accountMap = new Map<Id, String>();
+        
+        
+        for (Account acc : accounts) { 
+            accountMap.put(acc.Id, acc.Name);
+        }
+        system.debug(accountMap);
+        
+    }
+    /*  QUESTION.35Find element with maximum frequency using a Map
+Write a method that returns the element with the maximum frequency in a List using a Map.
+Input:
+List<Integer> list = new List<Integer>{1, 2, 2, 3, 3, 3};
+Output: 3*/
+    
+    Public static void    maximumFrequencyUsingAMap(){  
+        
+        List<Integer> list2a = new List<Integer>{1, 2, 2, 3, 3, 3};
+            Map<Integer, Integer> frequencyMap = new Map<Integer, Integer>();
+        Integer  Frequency = 0;
+        Integer Element = null;
+        
+        
+        for (Integer num : list2a) {
+            if (frequencyMap.containsKey(num)) {
+                frequencyMap.put(num, frequencyMap.get(num) + 1);
+            } else {
+                frequencyMap.put(num, 1);
+            }
+        }
+        
+        
+        for (Integer key : frequencyMap.keySet()) {
+            Integer frequency1 = frequencyMap.get(key);
+            if (frequency1 > Frequency) {
+                Frequency = frequency1;
+                Element = key;
+            }
+        }
+        system.debug(Element);  
+        
+    }        
+    
+    
+    
+    /*  QUESTION.32.Group by frequency and sort by occurrence
+Group elements of a List by their frequency and return the elements sorted by their occurrence count using a Map.
+Input:
+List<Integer> list = new List<Integer>{1, 2, 2, 3, 3, 3};
+Output: [3, 2, 1]*/
+    
+    Public static void    frequencyAndSortByOccurrence(){  
+        
+        List<Integer> list2b = new List<Integer>{1, 2, 2, 3, 3, 3};
+            Map<Integer, Integer> frequencyMap1 = new Map<Integer, Integer>();
+        
+        
+        for (Integer num : list2b) {
+            if (frequencyMap1.containsKey(num)) {
+                frequencyMap1.put(num, frequencyMap1.get(num) + 1);
+            } else {
+                frequencyMap1.put(num, 1);
+            }
+        }
+        
+        
+        List<Integer> elements = new List<Integer>(frequencyMap1.keySet());
+        List<Integer> elements1 = new List<Integer>();
+        for(Integer i =2; i>=0; i--){
+            
+            elements1.add(elements[i]);
+        }
+        system.debug(elements1);
+    } 
+    
+    /*  QUESTION.31.Find common elements in multiple Lists
+Write a method to find common elements across multiple Lists using Sets.
+Input:
+List<Integer> list1 = new List<Integer>{1, 2, 3};
+List<Integer> list2 = new List<Integer>{2, 3, 4};
+List<Integer> list3 = new List<Integer>{3, 4, 5};
+Output: [3]*/
+    
+    Public static void  CommonElementsInMultipleLists(){  
+        
+        List<Integer> listC1 = new List<Integer>{1, 2, 3};
+            List<Integer> listC2 = new List<Integer>{2, 3, 4};
+                List<Integer> listC3 = new List<Integer>{3, 4, 5};
+                    List<Integer> element3 = new List<Integer>();
+        for(integer A1 : listC1){
+            if(listC2.contains(A1)){
+                if(listC3.contains(A1)){
+                    element3.add(A1);    
+                    system.debug(A1);   
+                }   
+            } 
+        } 
+    }
+    
+    /*  QUESTION.30.Check if a Set contains duplicates
+Write a method that checks if a List contains any duplicates using a Set.
+Input:
+List<Integer> list = new List<Integer>{1, 2, 3, 2};
+Output: true */
+    
+    
+    Public static void   containsDuplicates(){  
+        
+        
+        List<Integer> listint = new List<Integer>{1, 2, 3, 2};
+            
+            set<Integer> setint = new set<Integer>();
+        for(integer int1 : listint){
+            if(!setint.contains(int1)){
+                setint.add(int1);
+            }else {
+                
+                Boolean duplicate = True;
+                system.debug(duplicate);
+            }
+        }
+        
+    }
+    
+    /*  QUESTION.20.Create a Map from two Lists
+Write a method that creates a Map from two Lists: one for keys and one for values.
+Input:
+List<String> keys = new List<String>{'A', 'B', 'C'};
+List<Integer> values = new List<Integer>{1, 2, 3};
+Output: {A => 1, B => 2, C => 3}*/
+    
+    Public static void  MapFromTwoLists(){  
+        
+        List<String> keys = new List<String>{'A', 'B', 'C'};
+            List<Integer> values = new List<Integer>{1, 2, 3};
+                Map<String,Integer> mapvalue = new  Map<String,Integer>();
+        
+        
+        for (Integer i = 0; i < keys.size(); i++) {
+            mapvalue.put(keys[i], values[i]);
+        }
+        
+        System.debug(mapvalue);
+    }
+    
+    
+    /*  QUESTION.19.Transform Map values
+Given a Map, write a method that transforms the values by applying a function.
+Input:
+Map<String, Integer> map = new Map<String, Integer>{'A' => 1, 'B' => 2};
+Function: Double the values.
+Output: {A => 2, B => 4}*/
+    
+    Public static void  transformMapValues(){  
+        
+        
+        Map<String, Integer> map11 = new Map<String, Integer>{'A' => 1, 'B' => 2};   
+            
+            Map<String, Integer> transformMap = new Map<String, Integer>();
+        
+        for(String key : map11.Keyset()){
+            integer value = map11.get(key)*2;
+            transformMap.put(key,value);
+            system.debug(transformMap);
+            
+        }
+    }
+    
+    
+    
+    /*  QUESTION.16.Sort a Map by keys
+Write a method to sort a Map by its keys in ascending order.
+Input:
+Map<String, Integer> map = new Map<String, Integer>{'B' => 2, 'A' => 1, 'C' => 3};
+Output: {A => 1, B => 2, C => 3}*/
+    
+    Public static void   ascendingOrder(){  
+        
+        Map<String, Integer> map1C = new Map<String, Integer>{'B' => 2, 'A' => 1, 'C' => 3};
+            
+            List<String> keyslist = new List<String>();
+        keyslist.addAll(map1C.keySet());
+        
+        keyslist.sort();
+        
+        Map<String, Integer> sortedMap = new Map<String, Integer>();
+        
+        
+        for (String key : keyslist) {
+            sortedMap.put(key, map1C.get(key));
+        }
+        System.debug(sortedMap);
+        
+    }
