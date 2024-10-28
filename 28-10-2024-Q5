@@ -147,3 +147,122 @@ Output: 3*/
     
     
 }
+ 
+    /*QUESTION.38.Filter a Map based on a condition
+Write a method to filter a Map's entries based on a condition applied to the values.
+Input:
+Map<String, Integer> map = new Map<String, Integer>{'A' => 1, 'B' => 3};
+Condition: Values greater than 2.
+Output: {B => 3}*/
+    
+    Public static void   mapValuesGreaterThan2(){  
+        
+        Map<String, Integer> map1 = new Map<String, Integer>{'A' => 1, 'B' => 3};
+            
+            Map<String, Integer> Map2 = new Map<String, Integer>();
+        
+        for (String key : map1.keySet()) {
+            Integer value = map1.get(key);
+            if (value > 2) {
+                
+                Map2.put(key, value);
+            }
+        }
+        
+        System.debug(Map2);   
+    } 
+    
+    
+    
+ /* . QUESTION .39. Group elements of a List by their length
+Write a method that groups a List of strings by the length of each string using a Map.
+Input:
+List<String> list = new List<String>{'apple', 'banana', 'pear', 'fig'};
+Output: {5 => ['apple', 'pear'], 6 => ['banana'], 3 => ['fig']}*/  
+    
+      Public static void   GroupElementsTheirLength(){  
+     
+List<String> list1 = new List<String>{'apple', 'banana', 'pear', 'fig'};
+ 
+    Map<Integer, String> map1 = new Map<Integer, String>(); 
+    
+          for(String str : list1 ){
+              Integer length = str.length();
+              map1.put(length,str);
+              }
+    system.debug(map1);
+    
+      }
+    
+    
+    
+    
+   /* QUESTION .40. Find the first non-repeated element in a List
+Write a method that finds the first non-repeated element in a List of integers using a Map.
+Input:
+List<Integer> list = new List<Integer>{1, 2, 2, 3, 3, 4};
+Output: 1*/
+
+      Public static void firstNonRepeatedElement(){  
+    
+    List<Integer> list1 = new List<Integer>{1, 2, 2, 3, 3, 4};
+    
+   Map<Integer, Integer> Map1 = new Map<Integer, Integer>();
+
+ 
+for (Integer num : list1) {
+    if (Map1.containsKey(num)) {
+       
+        Map1.put(num, Map1.get(num) + 1);
+    } else {
+       
+        Map1.put(num, 1);
+    }
+}
+
+ 
+Integer firstNonRepeated = null; 
+
+for (Integer num : list1) {
+    if (Map1.get(num) == 1) {
+        firstNonRepeated = num;
+        break; 
+    }
+}
+System.debug(firstNonRepeated);  
+ }
+           
+/*QUESTION.17.Count character occurrences in a string
+Write a method to count the number of occurrences of each character in a string using a Map.
+Input:
+String str = 'hello';
+Output: {h => 1, e => 1, l => 2, o => 1}*/
+    
+    
+ public static  Void  countCharacterOccurrences(){
+    String str = 'hello';
+     
+    Map<String, Integer> charCountMap = new Map<String, Integer>();
+
+ 
+    for (Integer i = 0; i < str.length(); i++) {
+         
+        String Character = str.subString(i);
+
+        
+        if (charCountMap.containsKey(Character)) {
+           
+            charCountMap.put(Character, charCountMap.get(Character) + 1);
+        } else {
+            
+            charCountMap.put(Character, 1);
+        }
+    }
+ 
+System.debug(charCountMap);  
+    
+}   
+    
+     
+      }   
+    
