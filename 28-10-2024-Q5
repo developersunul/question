@@ -1,0 +1,149 @@
+ /* QUESTION.14.Merge two Maps
+Merge two Maps. If a key is present in both Maps, sum their values.
+Input:
+Map<String, Integer> map1 = new Map<String, Integer>{'A' => 1, 'B' => 2};
+Map<String, Integer> map2 = new Map<String, Integer>{'B' => 3, 'C' => 4};
+Output: {A => 1, B => 5, C => 4}*/
+    
+    Public static void  mergeTwoMaps(){  
+        
+        Map<String, Integer> map1 = new Map<String, Integer>{'A' => 1, 'B' => 2};
+            Map<String, Integer> map2 = new Map<String, Integer>{'B' => 3, 'C' => 4};
+                
+                
+                for (String key : map2.keySet()) {
+                    
+                    if (map1.containsKey(key)) {
+                        map1.put(key, map1.get(key) + map2.get(key));
+                    } else {
+                        
+                        map1.put(key, map2.get(key));
+                    }
+                }
+        
+        
+        System.debug(map1);   
+        
+    }     
+    /*Questio-15-Given two Maps, find keys present in one Map but not the other.
+Input:
+Map<String, Integer> map1 = new Map<String, Integer>{'A' => 1, 'B' => 2};
+Map<String, Integer> map2 = new Map<String, Integer>{'B' => 2, 'C' => 3};
+Output: ['A', 'C']*/
+    
+    
+    Public static void  findKeys(){   
+        Map<String, Integer> map1 = new Map<String, Integer>{'A' => 1, 'B' => 2};
+            Map<String, Integer> map2 = new Map<String, Integer>{'B' => 2, 'C' => 3};
+                
+                
+                List<String> uniqueKeys = new List<String>();
+        
+        
+        for (String key : map1.keySet()) {
+            if (!map2.containsKey(key)) {
+                uniqueKeys.add(key);
+            }
+        }
+        
+        
+        for (String key : map2.keySet()) {
+            if (!map1.containsKey(key)) {
+                uniqueKeys.add(key);
+            }
+        }
+        
+        
+        System.debug(uniqueKeys);  
+    }
+    
+    
+    
+    
+    /* QUESTION.33. Convert a List of Maps to a single Map
+Given a List of Maps, merge them into a single Map.
+Input:
+List<Map<String, Integer>> list = new List<Map<String, Integer>>{new Map<String, Integer>{'A' => 1}, new Map<String, Integer>{'B' => 2}}; 
+Output: {A => 1, B => 2}*/
+    Public static void   mergeThemSingleMap(){  
+        
+        
+        List<Map<String, Integer>> list1 = new List<Map<String, Integer>>{ new Map<String, Integer>{'A' => 1}, new Map<String, Integer>{'B' => 2}}; 
+            
+         
+            Map<String, Integer> mergedMap = new Map<String, Integer>();
+        
+        
+        for (Map<String, Integer> map1: list1) {
+            
+            for (String key : map1.keySet()) {
+                
+                mergedMap.put(key, map1.get(key));
+            }
+        }
+        
+        
+        System.debug(mergedMap);   
+    }   
+    
+    
+/*  QUESTION.34.Flatten a List of Lists
+Write a method that flattens a List of Lists into a single List.
+Input:
+List<List<Integer>> list = new List<List<Integer>>{new List<Integer>{1, 2}, new List<Integer>{3, 4}};
+Output: [1, 2, 3, 4]*/
+
+    Public static void   flattenAListOfLists(){  
+   
+       List<List<Integer>> list1 = new List<List<Integer>>{new List<Integer>{1, 2}, new List<Integer>{3, 4}}; 
+            
+         
+            List<Integer> mergeList = new List<Integer>();
+        
+        
+        for (List<Integer> numOfList : list1){
+            for(integer num : numOfList){
+                mergeList.add(num);
+                
+            }
+             }  
+             system.debug(mergeList);
+ 
+    
+  /*  QUESTION.12.Find element with maximum frequency using a Map
+Write a method that returns the element with the maximum frequency in a List using a Map.
+Input:
+List<Integer> list = new List<Integer>{1, 2, 2, 3, 3, 3};
+Output: 3*/
+    
+    Public static void    maximumFrequencyUsingAMap(){  
+        
+        List<Integer> list2a = new List<Integer>{1, 2, 2, 3, 3, 3};
+            Map<Integer, Integer> frequencyMap = new Map<Integer, Integer>();
+        Integer  Frequency = 0;
+        Integer Element = null;
+        
+        
+        for (Integer num : list2a) {
+            if (frequencyMap.containsKey(num)) {
+                frequencyMap.put(num, frequencyMap.get(num) + 1);
+            } else {
+                frequencyMap.put(num, 1);
+            }
+        }
+        
+        
+        for (Integer key : frequencyMap.keySet()) {
+            Integer frequency1 = frequencyMap.get(key);
+            if (frequency1 > Frequency) {
+                Frequency = frequency1;
+                Element = key;
+            }
+        }
+        system.debug(Element);  
+        
+    }        
+         
+    
+    
+}
