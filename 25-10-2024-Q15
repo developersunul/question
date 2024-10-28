@@ -1,0 +1,328 @@
+public class PracticeCollectionQuestion {
+    
+    Public static void MergeMethod1(){
+        
+        /*  QUESTION.1. Merge two sorted lists
+Write a method that takes two sorted Lists of integers and merges them into a single sorted List.
+Input:
+List<Integer> list1 = new List<Integer>{1, 3, 5};
+List<Integer> list2 = new List<Integer>{2, 4, 6};
+Output: [1, 2, 3, 4, 5, 6]*/
+        
+        List<Integer> list1 = new List<Integer>{1, 3, 5};  
+            List<Integer> list2 = new List<Integer>{2, 4, 6};
+                list1.addAll(list2); 
+        list1.sort();
+        system.debug(list1);
+    }
+    
+    
+    
+    /*  QUESTION.2. Find all duplicate elements in a list
+Write a method that returns a List of all duplicate elements in a List.
+Input:
+List<Integer> list = new List<Integer>{1, 2, 3, 2, 4, 3};
+Output: [2, 3]*/
+    Public static void  DuplicateMethod2(){
+        
+        List<Integer> listelement = new List<Integer>{1, 2, 3, 2, 4, 3};
+            
+            set<integer> Set1 = new set<integer>();
+        List<integer>list1 = new List<integer>();
+        
+        
+        for (Integer num : listelement) {
+            if (!Set1.add(num)) {
+                list1.add(num);
+                system.debug(list1);
+            }
+        }
+        
+    }    
+    
+    /*  QUESTION.4. Find the intersection of two lists
+Write a method that returns a List containing only the elements common to both input Lists.
+Input:
+List<Integer> list1 = new List<Integer>{1, 2, 3, 4};
+List<Integer> list2 = new List<Integer>{3, 4, 5, 6};
+Output: [3, 4]*/
+    Public static void  commonMethod4(){
+        
+        List<Integer> list1 = new List<Integer>{1, 2, 3, 4};
+            List<Integer> list2 = new List<Integer>{3, 4, 5, 6};
+                
+                Set<Integer>   Set1 = new Set<Integer>();       
+        Set<Integer> Set2  = new Set<Integer>();  
+        
+        
+        Set1.addAll(list1);  
+        Set2.addAll(list2);     
+        Set1.retainAll(Set2); 
+        system.debug( Set1);
+        
+    }
+    
+    
+    /*  QUESTION.7. Partition a List into even and odd numbers
+Partition a List of integers into two separate Lists: one for even numbers and one for odd numbers.
+Input:
+List<Integer> list = new List<Integer>{1, 2, 3, 4, 5};
+Output: Even List: [2, 4], Odd List: [1, 3, 5]*/
+    
+    Public static void   EvenNumbersOddnumbers7(){
+        
+        
+        List<Integer> Numberlist = new List<Integer>{1, 2, 3, 4, 5};
+            
+            List<Integer> evenList = new List<Integer>();
+        List<Integer> oddList = new List<Integer>();
+        
+        
+        for (Integer num : Numberlist) {
+            
+            if (Math.mod(num,2)== 0 ) {
+                evenList.add(num);  
+            } else {
+                oddList.add(num);  
+            }
+            system.debug(evenList);
+            system.debug(oddList);
+        }
+        
+        
+    }  
+    
+    /*  QUESTION.9. Find if a List contains a sublist
+Write a method that checks if a List contains another List as a sublist.
+Input:
+List<Integer> list = new List<Integer>{1, 2, 3, 4, 5};
+List<Integer> sublist = new List<Integer>{3, 4};
+Output: true */
+    
+    
+    Public static void  ChecksSublist9(){   
+        
+        List<Integer> List1 = new List<Integer>{1, 2, 3, 4, 5};
+            List<Integer> sublist = new List<Integer>{3, 4};
+                
+                for(integer num :sublist){
+                    if(List1.contains(num)){
+                        
+                        Boolean sublistpresent = True;
+                        system.debug(sublistpresent);
+                        
+                    } 
+                }     
+    }  
+    
+    /*  QUESTION.11. Group elements by frequency
+Write a method that groups elements of a List by their frequency using a Map.
+Input:
+List<Integer> list = new List<Integer>{1, 2, 2, 3, 3, 3};
+Output: {1 => 1, 2 => 2, 3 => 3}*/
+    Public static void  Groupelementsbyfrequency11(){
+        
+        List<Integer> list1 = new List<Integer>{1, 2, 2, 3, 3, 3};
+            
+            Map<Integer,Integer> map1 = new  Map<Integer,Integer>(); 
+        
+        for(Integer num : list1){
+            if(map1.containsKey(num)){
+                map1.put(num,map1.get(num)+1);
+            }else {
+                map1.put(num,1);
+                system.debug(map1);
+            }
+            
+        }
+    }
+    /*  QUESTION.26. Convert a Set to a List
+Write a method to convert a Set to a List.
+Input:
+Set<Integer> set = new Set<Integer>{1, 2, 3};
+Output: [1, 2, 3]*/
+    
+    Public static void convertaSet(){
+        Set<Integer> set1 = new Set<Integer>{1, 2, 3};
+            
+            list<integer>list2 = new  list<integer>();
+        list2.addAll(set1);
+        system.debug(list2);
+        
+    }    
+    
+    /* QUESTION.25. Remove duplicates using a Set
+Write a method that removes duplicates from a List using a Set.
+Input:
+List<Integer> list = new List<Integer>{1, 2, 2, 3, 3, 4};
+Output: [1, 2, 3, 4]*/
+    
+    Public static void removesDuplicates(){
+        List<Integer> list3 = new List<Integer>{1, 2, 2, 3, 3, 4};      
+            Set<Integer> set3= new Set<Integer>();
+        
+        set3.addAll(list3);   
+        system.debug(set3);
+        
+    }        
+    
+    
+    
+    /*  QUESTION.24. Find intersection of two sets
+Write a method to return the intersection of two Sets.
+Input:
+Set<Integer> set1 = new Set<Integer>{1, 2, 3};
+Set<Integer> set2 = new Set<Integer>{2, 3, 4};
+Output: {2, 3} */
+    
+    Public static void intersectionOfTwoSets(){  
+        Set<Integer> set4 = new Set<Integer>{1, 2, 3};
+            Set<Integer> set5 = new Set<Integer>{2, 3, 4};
+                
+                set4.retainall(set5) ; 
+        system.debug(set4);      
+        
+    }
+    
+    /*  QUESTION.21. Find union of two sets
+Write a method to return the union of two Sets.
+Input:
+Set<Integer> set1 = new Set<Integer>{1, 2, 3};
+Set<Integer> set2 = new Set<Integer>{3, 4, 5};
+Output: {1, 2, 3, 4, 5}*/
+    Public static void  unionOfTwoSets(){  
+        Set<Integer> set6= new Set<Integer>{1, 2, 3};
+            Set<Integer> set7 = new Set<Integer>{3, 4, 5};  
+                set6.addAll(set7);
+        
+        system.debug(set6);
+    }
+    
+    /*  QUESTION.22. Find difference between two sets
+Write a method to return the difference between two Sets.
+Input:
+Set<Integer> set1 = new Set<Integer>{1, 2, 3};
+Set<Integer> set2 = new Set<Integer>{3, 4};
+Output: {1, 2}*/
+    
+    Public static void  differenceBetweenTwoSets(){  
+        
+        
+        Set<Integer> set8 = new Set<Integer>{1, 2, 3};
+            Set<Integer> set9 = new Set<Integer>{3, 4};   
+                
+                
+                Set<Integer> differenceSet = new Set<Integer>();
+        
+        
+        for (Integer element : set8) {
+            
+            if (!set9.contains(element)) {
+                differenceSet.add(element); 
+                
+                system.debug(differenceSet);
+            }
+            
+        }
+        
+    }
+    
+    /*  QUESTION.23. Check if two sets are equal
+Write a method that checks if two Sets are equal.
+Input:
+Set<Integer> set1 = new Set<Integer>{1, 2, 3};
+Set<Integer> set2 = new Set<Integer>{3, 1, 2};
+Output: true */
+    Public static void  twoSetsAreEqual(){  
+        
+        Set<Integer> set11 = new Set<Integer>{1, 2, 3};
+            Set<Integer> set12 = new Set<Integer>{3, 1, 2};
+                
+                for(Integer num : set11){
+                    if(set12.Contains(num)){
+                        
+                        Boolean B = True;   
+                        system.debug(B); 
+                        
+                    }  
+                    
+                }
+    }
+    
+    
+    /*  QUESTION.27. Check if a Set is a subset of another
+Write a method that checks if one Set is a subset of another Set.
+Input:
+Set<Integer> set1 = new Set<Integer>{1, 2};
+Set<Integer> set2 = new Set<Integer>{1, 2, 3};
+Output: true */
+    Public static void  subsetOfAnotherSet(){  
+        
+        Set<Integer> set13 = new Set<Integer>{1, 2};
+            Set<Integer> set14 = new Set<Integer>{1, 2, 3};
+                
+                
+                for(Integer num : set13){
+                    if(set14.Contains(num)){
+                        
+                        Boolean B1 = True;   
+                        system.debug(B1); 
+                        
+                        
+                    }
+                }        
+        
+    }
+    
+    /*  QUESTION.28. Find symmetric difference of two sets
+Write a method to find the symmetric difference (elements not in both sets) of two Sets.
+Input:
+Set<Integer> set1 = new Set<Integer>{1, 2, 3};
+Set<Integer> set2 = new Set<Integer>{3, 4};
+Output: {1, 2, 4}*/
+    Public static void  ymmetricDifferenceOfTwoSets(){  
+        
+        
+        Set<Integer> set15 = new Set<Integer>{1, 2, 3};
+            Set<Integer> set16 = new Set<Integer>{3, 4};
+                
+                
+                Set<Integer> tempSet15 = new Set<Integer>(set15);
+        Set<Integer> tempSet16 = new Set<Integer>(set16);
+        
+        
+        tempSet15.removeAll(set16);  
+        tempSet16.removeAll(set15);   
+        
+        Set<Integer> set17 = new Set<Integer>();
+        set17.addAll(tempSet15);   
+        set17.addAll(tempSet16);  
+        
+        System.debug(set17);  
+        
+        
+    }
+    
+    
+    /*  QUESTION.13. Reverse a Map
+Given a Map, write a method to reverse its keys and values.
+Input:
+Map<String, Integer> map = new Map<String, Integer>{'A' => 1, 'B' => 2, 'C' => 3};
+Output: {1 => 'A', 2 => 'B', 3 => 'C'}*/
+    Public static void  reverseItsKeysAndValues(){  
+        
+        
+        
+        Map<String, Integer> map4 = new Map<String, Integer>{'A' => 1, 'B' => 2, 'C' => 3};
+            
+            Map<Integer, String> map5 = new Map<Integer, String>(); 
+        
+        
+        for(String A : map4.Keyset()){
+            integer value = map4.get(A);
+            map5.put(value,A); 
+            system.debug(map5);
+            
+            
+        }
+    }
