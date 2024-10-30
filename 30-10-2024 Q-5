@@ -1,0 +1,143 @@
+
+  /* QUESTION.5. Find the Kth largest element in a List
+Write a method that returns the Kth largest element in a List of integers.
+Input:
+List<Integer> list = new List<Integer>{5, 2, 9, 7, 3};
+int K = 3;
+Output: 5 */
+ 
+  public static  Void  rotateAList(){
+  
+ List<Integer> list1 = new List<Integer>{5, 2, 9, 7, 3};
+Integer K = 3;
+
+ 
+for (Integer i = 0; i < list1.size(); i++) {
+    for (Integer j = i + 1; j < list1.size(); j++) {
+        if (list1[i] < list1[j]) {
+             
+            Integer temp = list1[i];
+            list1[i] = list1[j];
+            list1[j] = temp;
+        }
+    }
+}
+     
+ 
+Integer KthLargest = list1[K - 1];
+System.debug(KthLargest);  
+     }
+/* QUESTION.8.Reverse every K elements in a List
+Reverse every group of K consecutive elements in a List.
+Input:
+List<Integer> list = new List<Integer>{1, 2, 3, 4, 5, 6};
+int K = 2;
+Output: [2, 1, 4, 3, 6, 5]*/
+   public static  Void  ReverseEvery(){
+       
+ List<Integer> list1a = new List<Integer>{1, 2, 3, 4, 5, 6};
+Integer K = 2;
+
+ 
+for(Integer i = 0; i < list1a.size(); i += K) {
+    
+    Integer start = i;
+    Integer end1 = Math.min(i + K - 1, list1a.size() - 1);  
+     
+    while (start < end1) {
+        Integer temp = list1a[start];
+        list1a[start] = list1a[end1];
+        list1a[end1] = temp;
+        
+        start++;
+        end1--;
+    }
+}
+
+ 
+System.debug(list1a); 
+     }        
+    
+    
+  /*42.  Check if a List of numbers forms a geometric progression
+Write a method to check if the numbers in a List form a geometric progression using a Set.
+Input:
+List<Integer> list = new List<Integer>{2, 4, 8};
+Output: true*/
+  public static  Void   geometricProgression(){
+       
+    List<Integer> list1 = new List<Integer>{2, 4, 8};
+        
+       Boolean duplicate = false;
+      
+      for(Integer i=list1.size()-1;i>0;i--){
+          
+          if(list1[i]==list1[i-1]*2){
+           duplicate = true;   
+          }
+      }
+        
+      if(duplicate){
+          system.debug('true');
+              }else
+              {
+                  
+                    system.debug('flase');
+              }
+       } 
+       
+/* QUESTION.11.Find common keys with maximum values
+Find keys that are common between two Maps and have maximum values.
+Input:
+Map<String, Integer> map1 = new Map<String, Integer>{'A' => 1, 'B' => 2};
+Map<String, Integer> map2 = new Map<String, Integer>{'A' => 3, 'B' => 1};
+Output: {'A'}*/
+     public static void   keysWithMaximumValues(){
+         Map<String, Integer> map1 = new Map<String, Integer>{'A' => 1, 'B' => 2};
+Map<String, Integer> map2 = new Map<String, Integer>{'A' => 3, 'B' => 1};
+Set<String> commonkey = new Set<String>();
+
+ 
+for (String key : map1.keySet()) { 
+    if (map2.containsKey(key)) {
+       
+        if (map1.get(key) <= map2.get(key)) {
+              
+            commonkey.add(key);
+        } 
+           
+    }
+}
+ 
+System.debug(commonkey);
+}
+ 
+  
+ 
+  
+    
+
+/* QUESTION.13.Find all Maps that contain a specific key in a List of Maps
+Find all Maps in a List of Maps that contain a specific key.
+Input:
+List<Map<String, Integer>> list = new List<Map<String, Integer>>{new Map<String, Integer>{'A' => 1}, new Map<String, Integer>{'B' => 2}};
+Key = 'A'
+Output: [{'A' => 1}]*/
+    
+  public static void  simpleCacheWithMap(){
+ 
+ List<Map<String, Integer>> list1 = new List<Map<String, Integer>>{
+    new Map<String, Integer>{'A' => 1},
+    new Map<String, Integer>{'B' => 2}
+};
+String key = 'A';
+List<Map<String, Integer>> result = new List<Map<String, Integer>>();
+
+for (Map<String, Integer> map1 : list1) {
+    if (map1.containsKey(key)) {
+        result.add(map1);
+    }
+}
+
+System.debug(result);  
+  }
