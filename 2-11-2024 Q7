@@ -1,0 +1,207 @@
+/*QUESTION.14.Implement a simple cache with Map
+Write a method that simulates a cache, where each item is a key-value pair stored in a Map.
+Input:
+Cache.put('key1', 'value1'); Cache.get('key1');
+Output: 'value1'*/
+     
+       public static void  simulatesACache(){
+ Map<String, String> Cache1 = new Map<String,String>{'key1' => 'value1' };
+     string s = null;
+    for(string key : Cache1.keyset()) {
+        
+     s = Cache1.get(key);
+       
+    }
+     system.debug(s);
+    
+       }
+
+
+    
+/*QUESTION.15. Convert a List of Maps to a Map of Lists by key
+Given a List of Maps, convert it to a Map of Lists, where each key in the original Maps has a List of corresponding values.
+Input:
+List<Map<String, Integer>> list = [{A => 1}, {A => 2, B => 3}];
+Output: {A => [1, 2], B => [3]}*/
+  
+     public static void  convertItToAMapOfLists(){
+    
+    List<Map<String, Integer>> list1 = new List<Map<String, Integer>>{
+    new Map<String, Integer>{'A' => 1},
+    new Map<String, Integer>{'A' => 2, 'B' => 3}};
+
+ 
+Map<String, List<Integer>> resultMap = new Map<String, List<Integer>>();
+ 
+for (Map<String, Integer> map1 : list1) {
+     
+    for (String key : map1.keySet()){
+        Integer values = map1.get(key);
+          List<Integer> valuesList = new List<Integer>();
+        if (resultMap.containsKey(key)) { 
+            List<Integer> V1 = resultMap.get(key);
+             valuesList.addAll(V1);
+                 valuesList.add(values);            
+            
+                   resultMap.put(key, valuesList);
+        }          
+            
+         else {
+            
+            List<Integer> valuesList1 = new List<Integer>{values};
+            resultMap.put(key, valuesList1);
+        }
+    }
+System.debug(resultMap);
+     }
+                 
+     }
+          
+/*QUESTION.16.Find the minimum value in a Map
+Write a method to find the minimum value in a Map.
+Input:
+Map<String, Integer> map = new Map<String, Integer>{'A' => 3, 'B' => 2};
+Output: 2*/
+         
+      
+     public static void   minimumValueInAMap1(){   
+         Map<String, Integer> map1 = new Map<String, Integer>{'A' => 3, 'B' => 2};
+ 
+Integer minValue = 3;  
+ 
+for (Integer value : map1.values()) {
+    
+    if (value < minValue) {
+        minValue = value;
+    }
+}
+ 
+System.debug(minValue);
+     }
+         
+         
+/*QUESTION.18.Invert a nested Map
+Given a nested Map, write a method to invert it.
+Input:
+Map<String, Map<String, Integer>> map = {'outer' => {'inner1' => 1, 'inner2' => 2}};
+Output: {'inner1' => {'outer' => 1}, 'inner2' => {'outer' => 2}}*/
+         
+   public static void  invertMap(){         
+     Map<String, Map<String, Integer>> map1 = new Map<String, Map<String, Integer>>{
+    'outer' => new Map<String, Integer>{'inner1' => 1, 'inner2' => 2}
+};
+
+      
+Map<String, Map<String, Integer>> map2 = new Map<String, Map<String, Integer>>();
+       
+       for(String key : map1.keyset()){    
+          Map<String, Integer> map3 = map1.get(key);
+           for(string key1 : map3.keyset()){
+               Integer Value = map3.get(key1);
+               Map<String, Integer> map4 = new   Map<String, Integer>();
+               map4.put(key,Value);
+              map2.put(key1,map4); 
+           }
+           
+       }
+         system.debug(map2);        
+    }
+
+
+/*QUESTION.19.Find keys in Map with values greater than the average
+Find all keys in a Map where the value is greater than the average value of the Map.
+Input:
+Map<String, Integer> map = {'A' => 10, 'B' => 15, 'C' => 20};
+Output: {'B', 'C'}*/
+
+ public static void   mapValuesGreaterThanAverage(){
+    Map<String, Integer> map1 = new Map<String, Integer>{ 'A' => 10,'B' => 15, 'C' => 20};
+ 
+
+ 
+Integer sum = 0;
+for (Integer value1 : map1.values()) {
+    sum += value1;
+}
+
+ 
+Integer average = sum / map1.size();
+ 
+List<String> acclist = new List<String>();
+
+for (String key : map1.keySet()) {
+    Integer value = map1.get(key);
+    if (value >= average) {
+        acclist.add(key);
+    }
+}
+
+System.debug(acclist);
+
+ } 
+    
+    
+/* QUESTION.20.Implement a frequency counter for Map values
+Write a method that counts how many times each value appears in a Map.
+Input:
+Map<String, Integer> map = {'A' => 10, 'B' => 15, 'C' => 10};
+Output: {10 => 2, 15 => 1}*/
+    
+
+    public static void   frequencyCounterforMapValues(){
+Map<String, Integer> map1 = new Map<String, Integer>{ 'A' => 10, 'B' => 15, 'C' => 10};
+     
+ 
+Map<Integer, Integer> frequencyMap = new Map<Integer, Integer>();
+ 
+for (Integer value : map1.values()) {
+     
+    if (frequencyMap.containsKey(value)) {
+        frequencyMap.put(value, frequencyMap.get(value) + 1);
+    } else {
+         
+        frequencyMap.put(value, 1);
+    }
+}
+
+System.debug(frequencyMap);
+        
+    } 
+    
+    
+  
+    
+ /* QUESTION.23.Find the Jaccard index of two Sets
+Write a method to compute the Jaccard index (intersection divided by union) of two Sets.
+Input:
+Set<Integer> set1 = {1, 2, 3};
+Set<Integer> set2 = {2, 3, 4};
+Output: 0.5*/
+   public static void   JaccardIndexOfTwoSets(){
+       
+Set<Integer> set1 = new Set<Integer>{1, 2, 3};
+Set<Integer> set2 = new Set<Integer>{2, 3, 4};
+
+ 
+Set<Integer> commonelements = new Set<Integer>();
+for (Integer num : set1) {
+    if (set2.contains(num)) {
+        commonelements.add(num);
+    }
+}
+
+ 
+Set<Integer> uniqueelements = new Set<Integer>(set1);  
+for (Integer num : set2) {
+    uniqueelements.add(num);  
+}
+
+ 
+Decimal jaccardIndex;
+ 
+    jaccardIndex = (Decimal) commonelements.size() / uniqueelements.size();
+ 
+System.debug(jaccardIndex);
+    
+   } 
+    
